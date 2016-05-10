@@ -1,5 +1,22 @@
+/*
+
+LIN/GEMS
+
+ */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
+@import "ionicons";
+@import "admin-lte";
+@import "iCheck/all";
+@import "datatables/dataTables.bootstrap";
+
+
+/*
+
+PROJECT SPECIFIC
+
+ */
 @import "chatrooms";
 @import "messages";
 @import "users";
