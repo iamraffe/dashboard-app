@@ -13,7 +13,7 @@
   <!-- Main content -->
   <div class="content body">
     <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-sm-4 col-sm-offset-4">
         <div class="box box-default direct-chat direct-chat-warning">
           <div class="box-header with-border">
             <h3 class="box-title"><%= @chatroom.topic %></h3>
@@ -35,7 +35,7 @@
             <!-- Contacts are loaded here -->
             <div class="direct-chat-contacts">
               <ul class="contacts-list">
-                <% @chatroom.users.each do |user| %>
+                <% @chatroom.users.uniq.each do |user| %>
                   <li>
                     <a href="<%= user_path(user) %>">
                       <img class="contacts-list-img" src="/assets/<%= user.avatar.url(:thumb) %>" alt="<%= user.username %>">

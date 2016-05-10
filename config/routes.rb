@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :chatrooms, param: :slug
   resources :messages
-  resources :user
+  resources :users
 
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
