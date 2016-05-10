@@ -1,0 +1,12 @@
+<% if flash.notice %>
+  <div class="row">
+    <div class="col-xs-12">
+      <% flash.each do |type, message|%>
+        <div class="alert alert-<%= type == 'notice' ? 'success' : type %>">
+          <span class="fa fa-exclamation" aria-hidden="true"></span>
+          <%= message %>
+        </div>
+      <% end%>
+    </div>
+  </div>
+<%end%>

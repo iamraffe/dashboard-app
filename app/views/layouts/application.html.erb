@@ -9,11 +9,14 @@
     <%= action_cable_meta_tag %>
   </head>
 
-  <body>
-    <%= render partial: 'layouts/navbar' %>
-    <%= render partial: 'layouts/flash_messages'%>
-    <div class="container">
-      <%= yield %>
+  <body class="skin-black fixed sidebar-mini" data-spy="scroll" data-target="#scrollspy">
+    <div class="wrapper">
+      <%= render partial: 'layouts/shared/navbar' %>
+      <%= render partial: 'layouts/shared/sidebar' %>
+      <div class="content-wrapper">
+        <%= render partial: 'layouts/shared/flash_messages'%>
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

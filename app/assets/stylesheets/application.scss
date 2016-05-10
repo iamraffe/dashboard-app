@@ -1,6 +1,6 @@
 /*
 
-LIN/GEMS
+LIb/GEMS
 
  */
 @import "bootstrap-sprockets";
@@ -27,20 +27,34 @@ FLASH MESSAGES
 
  */
 
-.alert-notice, .alert-success{
-  margin: 25px auto;
-  @extend .alert;
-  @extend .alert-success;
+// .alert-notice, .alert-success{
+//   margin: 25px auto;
+//   @extend .alert;
+//   @extend .alert-success;
+// }
+
+// .alert-error, .alert-alert{
+//   margin: 25px auto;
+//   @extend .alert;
+//   @extend .alert-danger;
+// }
+
+// .alert-warning{
+//   margin: 25px auto;
+//   @extend .alert;
+//   @extend .alert-warning;
+// }
+
+
+
+.main-header > .navbar > .sidebar-toggle{
+  &:hover, &:focus, &:active, &:visited{
+    text-decoration: none !important;
+  }
 }
 
-.alert-error, .alert-alert{
-  margin: 25px auto;
-  @extend .alert;
-  @extend .alert-danger;
-}
-
-.alert-warning{
-  margin: 25px auto;
-  @extend .alert;
-  @extend .alert-warning;
+.form-control {
+    border-radius: 0;
+    box-shadow: none;
+    border-color: #d2d6de;
 }

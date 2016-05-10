@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap.min
+//= require jquery.slimscroll.min
 //= require adminlte/adminlte
 //= require_tree ./channels
 //= require_tree .

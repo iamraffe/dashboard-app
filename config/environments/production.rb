@@ -87,4 +87,13 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.action_cable.allowed_request_origins = ['https://secret-river-95652.herokuapp.com', 'http://secret-river-95652.herokuapp.com']
   config.web_socket_server_url = "wss://secret-river-95652.herokuapp.com/cable"
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_protocol => :https,
+    :s3_credentials => {
+      :bucket => ENV['S3_BUCKET_NAME'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
 end
