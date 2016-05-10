@@ -5,7 +5,7 @@ LIN/GEMS
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-// @import "font-awesome";
+@import "font-awesome";
 // @import "ionicons";
 @import "adminlte/adminlte.css";
 @import "adminlte/skins/_all-skins.css";
@@ -20,3 +20,27 @@ PROJECT SPECIFIC
 @import "chatrooms";
 @import "messages";
 @import "users";
+
+/*
+
+FLASH MESSAGES
+
+ */
+
+.alert-notice, .alert-success{
+  margin: 25px auto;
+  @extend .alert;
+  @extend .alert-success;
+}
+
+.alert-error, .alert-alert{
+  margin: 25px auto;
+  @extend .alert;
+  @extend .alert-danger;
+}
+
+.alert-warning{
+  margin: 25px auto;
+  @extend .alert;
+  @extend .alert-warning;
+}

@@ -1,0 +1,41 @@
+<header>
+  <p class="login-box-msg">Sign in to start your session</p>
+</header>
+
+
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-group has-feedback">
+    <!-- <%= f.label :email %><br /> -->
+    <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>
+    <span class="fa fa-envelope form-control-feedback"></span>
+  </div>
+
+  <div class="form-group has-feedback">
+    <!-- <%= f.label :password %><br /> -->
+    <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
+    <span class="fa fa-lock form-control-feedback"></span>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    </div>
+  <% end -%>
+
+  <div class="actions row">
+    <div class="col-xs-4 col-xs-offset-8">
+      <%= f.submit "Log in", class: "btn btn-primary btn-block btn-flat pull-right" %>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="col-xs-12">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
+
