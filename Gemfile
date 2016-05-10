@@ -49,5 +49,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'adminlte-rails'
+gem 'adminlte-rails', git: 'https://github.com/shine60vn/adminlte-rails'
 gem 'devise'
