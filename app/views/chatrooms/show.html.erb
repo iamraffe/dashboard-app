@@ -1,17 +1,61 @@
-<div class="row col-md-8 col-md-offset-2">
-  <h1><%= @chatroom.topic %></h1>
+  <div class="content-header">
+    <h1>
+      Welcome to the In-House demo web application
+      <small>Nice to see you again, <%= current_user.username%></small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="<%= root_path %>"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><a href="<%= chatrooms_path %>"><i class="fa fa-comments-o"></i> Chatrooms</a></li>
+      <li class="active"><i class="fa fa-comment"></i> <%= @chatroom.topic %></li>
+    </ol>
+  </div>
 
-<div class="panel panel-default">
-  <% if @chatroom.messages.any? %>
-    <div class="panel-body" id="messages">
-      <%= render partial: 'messages/message', collection: @chatroom.messages%>
+  <!-- Main content -->
+  <div class="content body">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="box box-default direct-chat direct-chat-warning">
+          <div class="box-header with-border">
+            <h3 class="box-title"><%= @chatroom.topic %></h3>
+            <div class="box-tools pull-right">
+              <!-- <span data-toggle="tooltip" title="3 New Messages" class="badge bg-red">3</span> -->
+              <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <!-- In box-tools add this button if you intend to use the contacts pane -->
+              <button class="btn btn-box-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle"><i class="fa fa-comments"></i></button>
+              <!-- <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button> -->
+            </div>
+          </div><!-- /.box-header -->
+          <div class="box-body">
+            <!-- Conversations are loaded here -->
+            <div class="direct-chat-messages" id="messages">
+              <% if @chatroom.messages.any? %>
+                <%= render partial: 'messages/message', collection: @chatroom.messages%>
+              <%end%>
+            </div>
+            <!-- Contacts are loaded here -->
+            <div class="direct-chat-contacts">
+              <ul class="contacts-list">
+                <% @chatroom.users.each do |user| %>
+                  <li>
+                    <a href="<%= user_path(user) %>">
+                      <img class="contacts-list-img" src="/assets/<%= user.avatar.url(:thumb) %>" alt="<%= user.username %>">
+                      <div class="contacts-list-info">
+                        <span class="contacts-list-name">
+                          <%= user.username %>
+                          <small class="contacts-list-date pull-right"><%= time_ago_in_words(user.last_sign_in_at) %></small>
+                        </span>
+                        <!-- <span class="contacts-list-msg">How have you been? I was...</span> -->
+                      </div>
+                    </a>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+          <div class="box-footer">
+            <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
+          </div>
+        </div>
+      </div>
     </div>
-  <%else%>
-    <div class="panel-body hidden" id="messages">
-    </div>
-  <%end%>
-</div>
-
-
-  <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
-</div>
+  </div>

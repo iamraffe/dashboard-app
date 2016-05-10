@@ -4,6 +4,8 @@ class Chatroom < ApplicationRecord
   validates :topic, presence: true, uniqueness: true, case_sensitive: false
   before_validation :sanitize, :slugify
 
+  belongs_to :owner, class_name: "User"
+  validates :owner, presence: true
 
   def to_param
     self.slug

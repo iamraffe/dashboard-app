@@ -1,1 +1,10 @@
-<p><strong><%=message.user.username%>:</strong> <%=message.content%></p>
+<div class="direct-chat-msg <%= message.user.username == current_user.username ? '' : 'right' %>">
+  <div class="direct-chat-info clearfix">
+    <span class="direct-chat-name pull-left"><%= message.user.username %></span>
+    <span class="direct-chat-timestamp pull-right"><%= time_ago_in_words(message.created_at, include_seconds: true) %> ago</span>
+  </div>
+  <%= image_tag message.user.avatar.url(:thumb), alt: message.user.username, class: "direct-chat-img" %>
+  <div class="direct-chat-text">
+    <%= message.content%>
+  </div>
+</div>

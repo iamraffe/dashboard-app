@@ -88,12 +88,12 @@
               </li>
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <%= image_tag current_user.avatar, class: "user-image", alt: current_user.username %>
+                  <%= image_tag current_user.avatar.url(:thumb), class: "user-image", alt: current_user.username %>
                   <span class="hidden-xs"><%= current_user.username %></span>
                 </a>
                 <ul class="dropdown-menu">
                   <li class="user-header">
-                    <%= image_tag current_user.avatar, class: "img-circle", alt: current_user.username %>
+                    <%= image_tag current_user.avatar.url(:thumb), class: "img-circle", alt: current_user.username %>
                     <p>
                       <%= current_user.full_name.blank? ? current_user.username : "#{current_user.full_name} - #{current_user.username}" %>
                       <small>Member since <%= current_user.created_at.strftime("%b. %Y")  %></small>

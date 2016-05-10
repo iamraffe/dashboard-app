@@ -9,6 +9,7 @@
             <span class="input-group-addon">topic:</span>
             <%= f.text_field :topic, class: "form-control"%>
           </div>
+          <input type="hidden" value="<%= current_user.id %>" name="chatroom[owner_id]">
           <%= f.submit class: "btn btn-primary", id: "create-chatroom" %>
         <% end %>
       </div>

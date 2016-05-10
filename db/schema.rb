@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160510020828) do
 
   create_table "chatrooms", force: :cascade do |t|
     t.string   "topic"
+    t.integer  "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"

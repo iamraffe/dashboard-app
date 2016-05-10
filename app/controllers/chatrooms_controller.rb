@@ -39,12 +39,15 @@ class ChatroomsController < ApplicationController
 
   def show
     @chatroom = Chatroom.find_by(slug: params[:slug])
+    if @chatroom.nil?
+      redirect_to( chatrooms_path, :flash => { :danger => "There isn't a chatroom with that name. Select one from the ones below" })
+    end
     @message = Message.new
   end
 
   private
 
     def chatroom_params
-      params.require(:chatroom).permit(:topic)
+      params.require(:chatroom).permit(:topic, :owner_id)
     end
 end
