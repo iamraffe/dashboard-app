@@ -1,18 +1,20 @@
 App.messages = App.cable.subscriptions.create('MessagesChannel', {
   received: function(data) {
     $("#messages").removeClass('hidden')
-    $('#messages').append(this.renderMessage(data))
+    var id = $("#messages").data('id')
+    // console.log(data, id)
+    $('#messages').append(this.renderMessage(data,id))
     $('input[name="message[content]"]').val("")
     return  $("#messages").animate({
                 scrollTop: $("#messages")[0].scrollHeight
             }, 'fast');
   },
 
-  renderMessage: function(data) {
+  renderMessage: function(data,id) {
     // console.log(data, this.perform("render_message", data))
     // return this.perform("render_message", data)
     var message = '';
-    message += '<div class="direct-chat-msg'+ (data.current_user ? '' : 'right') + '">'
+    message += '<div class="direct-chat-msg'+ (data.current_user === id ? '' : ' right') + '">'
     message +=  '<div class="direct-chat-info clearfix">'
     message +=    '<span class="direct-chat-name pull-left">'+ data.user +'</span>'
     message +=    '<span class="direct-chat-timestamp pull-right">'+data.time_ago +' ago</span>'

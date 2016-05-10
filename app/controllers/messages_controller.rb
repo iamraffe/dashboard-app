@@ -8,13 +8,13 @@ class MessagesController < ApplicationController
         message: message.content,
         user: message.user.username,
         avatar: message.user.avatar.url(:thumb),
-        current_user: current_user.username === message.user.username,
+        current_user: message.user.id,
         time_ago: time_ago_in_words(message.created_at, include_seconds: true)
       head :ok
     end
   end
-  private
 
+  private
     def message_params
       params.require(:message).permit(:content, :chatroom_id)
     end

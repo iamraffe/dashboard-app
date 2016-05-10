@@ -27,7 +27,7 @@
           </div><!-- /.box-header -->
           <div class="box-body">
             <!-- Conversations are loaded here -->
-            <div class="direct-chat-messages" id="messages">
+            <div class="direct-chat-messages" id="messages" data-id="<%= current_user.id %>">
               <% if @chatroom.messages.any? %>
                 <%= render partial: 'messages/message', collection: @chatroom.messages%>
               <%end%>
