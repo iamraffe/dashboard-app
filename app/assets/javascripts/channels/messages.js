@@ -4,7 +4,7 @@ App.messages = App.cable.subscriptions.create('MessagesChannel', {
     var id = $("#messages").data('id')
     // console.log(data, id)
     $('#messages').append(this.renderMessage(data,id))
-    $('input[name="message[content]"]').val("")
+    $('textarea[name="message[content]"]').val("")
     return  $("#messages").animate({
                 scrollTop: $("#messages")[0].scrollHeight
             }, 'fast');

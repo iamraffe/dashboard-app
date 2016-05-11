@@ -1,7 +1,37 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+100.times do |i|
+  u = User.create({
+        first_name: Faker::Name.first_name,
+        last_name: Faker::Name.last_name,
+        email: Faker::Internet.email,
+        password: "mysecretpassword",
+        password_confirmation: "mysecretpassword",
+        phone_number: Faker::PhoneNumber.phone_number,
+        avatar: "https://randomuser.me/api/portraits/thumb/men/#{i}.jpg",
+        # care_teams: c
+      })
+
+  u.care_teams << [c, ct].sample
+
+  u.add_role :patient
+end
+
+100.times do |i|
+  u = User.create({
+        first_name: Faker::Name.first_name,
+        last_name: Faker::Name.last_name,
+        email: Faker::Internet.email,
+        password: "mysecretpassword",
+        password_confirmation: "mysecretpassword",
+        phone_number: Faker::PhoneNumber.phone_number,
+        gender: "F",
+        diabetes: [true, false].sample,
+        heart_disease: [true, false].sample,
+        date_of_birth: Faker::Time.between(50.years.ago, 5.years.ago),
+        avatar: "https://randomuser.me/api/portraits/thumb/women/#{i}.jpg",
+        # care_teams: c
+      })
+
+  u.care_teams << [c, ct].sample
+
+  u.add_role :patient
+end
