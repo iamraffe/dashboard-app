@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20160510020828) do
 
   create_table "chatrooms", force: :cascade do |t|
     t.string   "topic"
-    t.integer  "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
@@ -35,13 +34,7 @@ ActiveRecord::Schema.define(version: 20160510020828) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
     t.string   "username"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
